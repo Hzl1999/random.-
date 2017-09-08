@@ -1,0 +1,54 @@
+<html>
+	<head>
+    	<title>班级随机抽</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <style>
+    	#big{width:500px; height:500px; text-align:center; margin:0 auto; margin-top:200px;}
+		#big div{background:url(img/bg1.jpg);width:500px; height:500px;}
+		#name{line-height:500px; font-size:36px; color:yellow}
+		#bnt1{background:#09F; color:white; width:150px; height:30px; font-size:16px;}
+		#bnt2{background:#09F; color:white; width:150px; height:30px; font-size:16px;}
+    </style>
+    
+    
+    <body>
+    	<div id="big">
+            <div id="name">
+                技培十七班随机数
+            </div>
+            <input type="button" value="开始" id="bnt1">
+            <input type="button" value="停止" id="bnt2">
+    	</div>
+    
+    </body>
+    
+    <script src="shuijishu.js"></script>
+    <script>
+		var data=['黄燕洵','魏成兴','杨廷福','黄安香','唐 莉','王  兴','李玉生','罗占学','班晴','邓 波','韦光令','覃国珍','岑 建','龙通洲','韦正松','潘小祥','黄造林','潘向友','忙文德','岑雪盈','岑柱梅','黄细晓'];//参与人员
+		var timer;
+				
+		$('#bnt1').click(function(){//开始
+			$('#bnt1').css('background','#F66')
+			$('#bnt2').css('background','#09F');
+			fn();
+		});
+		
+		$("#bnt2").click(function(){//停止
+		$('#bnt1').css('background','#09F')
+			$('#bnt2').css('background','#F66');
+			clearInterval(timer);
+		});
+		
+		function fn(){//抽取随机数
+			clearInterval(timer);
+			timer=setInterval(ff,30);
+			function ff(){
+				key = Math.floor(Math.random()*(data.length-1));
+				$("#name").text(data[key]);	
+			}
+		}
+		
+    </script>
+    
+</html>
